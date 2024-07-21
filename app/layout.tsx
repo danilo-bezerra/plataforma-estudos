@@ -6,6 +6,13 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 
 import { Toaster } from "@/components/ui/sonner";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Plataforma de estudos",
+  description:
+    "Plataforma de estudos perfeita consumir conteúdos baixados no computador de forma inteligente e organizada.",
+};
 
 const fontSans = FontSans({
   subsets: ["latin"],

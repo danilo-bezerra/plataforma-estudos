@@ -2,6 +2,7 @@ import { Cookie } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeSwitcher from "./theme-switcher";
 import Link from "next/link";
+import Image from "next/image";
 
 function Header() {
   return (
@@ -11,7 +12,14 @@ function Header() {
           href="/"
           className="inline-flex flex-wrap gap-3 cursor-pointer font-medium text-xl"
         >
-          <Cookie className="w-8 h-8" /> Receitas
+          <Image
+            src="/images/icon.png"
+            width={128}
+            height={128}
+            alt="three books"
+            className="w-8 h-8"
+          />
+          Estudos
         </Link>
         <div className="flex flex-wrap gap-4 items-center">
           <Link href="/conteudos/gestao">Configurações</Link>
