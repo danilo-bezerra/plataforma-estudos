@@ -7,6 +7,7 @@ import Footer from "@/components/footer";
 
 import { Toaster } from "@/components/ui/sonner";
 import { Metadata } from "next";
+import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   title: "Plataforma de estudos",
@@ -33,14 +34,16 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <Header />
-        <main className="flex flex-col flex-1 p-4 space-y-5 bg-neutral-100 dark:bg-neutral-950 dark">
-          {children}
-        </main>
+        <ThemeProvider attribute="class">
+          <Header />
+          <main className="flex flex-col flex-1 p-4 space-y-5  ">
+            {children}
+          </main>
 
-        <Footer />
+          <Footer />
 
-        <Toaster />
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

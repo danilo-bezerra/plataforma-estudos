@@ -6,7 +6,7 @@ import Image from "next/image";
 
 function Header() {
   return (
-    <div className="relative min-h-20 p-6 shadow-md bg-white dark:shadow-white/10 dark:bg-neutral-900">
+    <div className="relative min-h-20 p-6 shadow-md bg-neutral-100 dark:shadow-white/10 dark:bg-gray-800">
       <div className="flex justify-between items-center">
         <Link
           href="/"

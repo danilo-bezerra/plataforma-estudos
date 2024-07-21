@@ -29,9 +29,9 @@ export default function FileListItem({
     <div
       key={data.id}
       className={cn(
-        `flex justify-around items-center w-full h-16 my-6  border-2 shadow-sm rounded-md transition-transform  hover:border-purple-500`,
+        `flex justify-around items-center w-full h-16 my-6  border-2 shadow-sm rounded-md transition-transform  hover:border-primary`,
         params.fileId === data.id
-          ? "   border-purple-500 bg-purple-50 dark:bg-purple-900/20 dark:text-white"
+          ? "   border-primary bg-purple-50 dark:bg-primary/20 dark:text-white"
           : "dark:bg-neutral-900 bg-neutral-50"
       )}
     >

@@ -36,9 +36,9 @@ export default function SearchContents({ onSearch }: Props) {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="flex space-x-4 items-center"
+          className="flex space-x-4 items-center relative"
         >
-          <div className="flex space-x-2  w-[300px] relative ">
+          <div className="flex space-x-2  items-center w-[300px]  ">
             <FormField
               control={form.control}
               name="text"
@@ -60,16 +60,16 @@ export default function SearchContents({ onSearch }: Props) {
             />
 
             <Button
-              size="icon"
+              size="icon-xs"
               type="submit"
-              className="absolute right-0"
+              className="absolute right-0 top-0 bottom-0 h-full aspect-square"
               disabled={
                 form.formState.isLoading ||
                 form.formState.isSubmitting ||
                 !form.formState.isValid
               }
             >
-              <VscSearch size={20} />
+              <VscSearch size={16} />
             </Button>
           </div>
         </form>

@@ -1,36 +1,22 @@
 "use client";
 
-import { SetStateAction, useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 
 type Props = {};
 
-type Theme = "dark" | "light";
-
 export default function ThemeSwitcher({}: Props) {
-  const [theme, setTheme] = useState<Theme>("dark");
-
-  function toggleTheme() {
-    const newTheme = theme == "dark" ? "light" : "dark";
-
-    localStorage.setItem("@theme", newTheme);
-    setTheme(newTheme);
-    document.body.classList.toggle("dark");
-  }
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("@theme");
-
-    if (savedTheme) {
-      setTheme(savedTheme as SetStateAction<Theme>);
-      document.body.classList.add(savedTheme);
-    }
-  }, []);
+  const { systemTheme, theme, setTheme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
 
   return (
-    <Button onClick={toggleTheme} variant="ghost" className="dark:text-white">
-      {theme == "dark" ? (
+    <Button
+      onClick={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}
+      size="icon"
+      className="bg-gray-800 dark:bg-gray-50 hover:bg-gray-600 dark:hover:bg-gray-300 transition-all duration-100 text-white dark:text-gray-800  text-2xl md:text-4xl rounded-lg "
+    >
+      {theme == "light" ? (
         <Moon className="w-5 h-5" />
       ) : (
         <Sun className="w-5 h-5" />
