@@ -27,7 +27,7 @@ export default function ContentItem({ data, isEditable }: Props) {
   const coverImage = data.cover ? data.cover : "/images/no-cover.png";
 
   return (
-    <Card className="bg-white dark:bg-gray-900 shadow hover:scale-105 transition-transform space-y-1 border border-purple-100/50 border-b-4 border-b-purple-500/50  hover:border-b-purple-500 overflow-hidden">
+    <Card className="bg-white dark:bg-gray-900 shadow hover:scale-105 transition-transform space-y-1 border border-primary/30 border-b-4 border-b-primary/50  hover:border-b-primary overflow-hidden">
       <CardHeader className="p-0 cursor-pointer relative">
         <Image
           className="  aspect-video shrink-0 w-full"

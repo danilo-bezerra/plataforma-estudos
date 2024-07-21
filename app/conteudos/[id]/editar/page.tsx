@@ -15,7 +15,8 @@ export default async function EditContentPage({ params }: Props) {
 
   return (
     <section className="">
-      <div className="max-w-[450px] mx-auto bg-neutral-50 dark:bg-neutral-900 p-5 rounded-md border border-primary/50 shadow-md">
+      <div className="max-w-lg mx-auto bg-neutral-50 dark:bg-neutral-900 py-10 px-6 rounded-md border border-primary/50 shadow-md space-y-8">
+        <h2 className="text-center font-semibold">Edição de conteúdo </h2>
         <EditContentForm data={data} />
       </div>
     </section>

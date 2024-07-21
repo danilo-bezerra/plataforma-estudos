@@ -18,7 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 
 import { createContentSchema, updateContentSchema } from "@/schemas/schemas";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 
 type Props = {};
@@ -54,8 +54,14 @@ export default function CreateContentForm({}: Props) {
 
       router.push("/conteudos/gestao");
       router.refresh();
-    } catch {
-      toast.error(`ocorreu um erro ao cadastrar conteúdo!`);
+    } catch (e: any) {
+      let errorMessage = `ocorreu um erro ao cadastrar conteúdo!`;
+      if (e instanceof AxiosError) {
+        if (e.response?.data.error) {
+          errorMessage = `Ocorreu um erro: ${e.response?.data.message}`;
+        }
+      }
+      toast.error(errorMessage);
     }
   }
 
@@ -64,7 +70,7 @@ export default function CreateContentForm({}: Props) {
   return (
     <div className="space-y-5">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
             control={form.control}
             name="name"

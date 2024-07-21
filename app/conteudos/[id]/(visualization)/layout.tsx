@@ -25,11 +25,11 @@ export default async function VisualizationLayout({
 
   return (
     <div className=" grid grid-cols-1 lg:grid-cols-10 gap-2  flex-1">
-      <div className="w-full lg:col-span-7 space-y-4  bg-white dark:bg-neutral-900 rounded-md  h-screen max-h-screen overflow-scroll  border border-primary/20">
+      <div className="w-full lg:col-span-7 space-y-4  bg-white dark:bg-neutral-900 rounded-md  h-screen max-h-[90vh] overflow-scroll  border border-primary/20">
         {children}
       </div>
 
-      <div className="lg:col-span-3 overflow-y-scroll max-h-screen py-4 bg-white   rounded-md  dark:bg-neutral-900 border border-primary/20">
+      <div className="lg:col-span-3 overflow-y-scroll max-h-[90vh] py-4 bg-white   rounded-md  dark:bg-neutral-900 border border-primary/20">
         <Link
           href={`/conteudos/${params.id}`}
           className="block px-4 border-b pb-4 space-y-2"

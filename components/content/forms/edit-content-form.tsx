@@ -1,39 +1,29 @@
 "use client";
 
-import { useRef, useState } from "react";
-
 import { toast } from "sonner";
-import { object, z } from "zod";
+import { z } from "zod";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
-import { Content, FileV2 } from "@prisma/client";
-import { Card, CardContent } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
+import { Content } from "@prisma/client";
+
 import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 
 import {
   updateContentSchema,
   updateContentSchemaForm,
 } from "@/schemas/schemas";
-import axios from "axios";
+import axios, { AxiosError, isAxiosError } from "axios";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useRouter } from "next/navigation";
 import { Switch } from "@/components/ui/switch";
@@ -88,8 +78,14 @@ export default function EditContentForm({ data }: Props) {
 
       router.push("/conteudos/gestao");
       router.refresh();
-    } catch {
-      toast.error(`ocorreu um erro ao atualizar conteúdo!`);
+    } catch (e: any) {
+      let errorMessage = `ocorreu um erro ao atualizar conteúdo!`;
+      if (e instanceof AxiosError) {
+        if (e.response?.data.error) {
+          errorMessage = `Ocorreu um erro: ${e.response?.data.message}`;
+        }
+      }
+      toast.error(errorMessage);
     }
     console.log(values);
   }
@@ -99,7 +95,7 @@ export default function EditContentForm({ data }: Props) {
   return (
     <div className="space-y-5">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
             control={form.control}
             name="name"

@@ -10,3 +10,5 @@
 
 [x ] - registrar ultimo file acessado por cada content
 [x ] - ao entrar em um content exibir esse ultimo file como um card, dando a opção de ir direto para ele
+
+[ ] - escanear pasta do content novamente e remover arquivos ausentes e adicionar items novos, fazer comparação e checagem com base no path

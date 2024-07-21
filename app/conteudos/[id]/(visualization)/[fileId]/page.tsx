@@ -26,18 +26,23 @@ export default async function FilePage({ params }: Props) {
   return (
     <>
       {file?.type == "document" ? (
-        <iframe className="h-full max-h-[90vh] w-full" src={url}></iframe>
+        <iframe
+          className="h-full border-2 border-primary w-full"
+          src={url}
+        ></iframe>
       ) : null}
 
-      <div className="flex items-center justify-center min-h-[20vh]">
-        {file.type == "video" || file.type == "audio" ? (
+      {file.type == "video" || file.type == "audio" ? (
+        <div className="flex items-center justify-center min-h-[20vh]">
           <Player data={file} mediaSource={url} />
-        ) : null}
+        </div>
+      ) : null}
 
-        {file?.type == "image" ? (
-          <img loading="lazy" className="max-h-[80vh] " src={url}></img>
-        ) : null}
-      </div>
+      {file?.type == "image" ? (
+        <div className="flex items-center justify-center min-h-[20vh]">
+          <img loading="lazy" className="max-h-[80vh] " src={url}></img>{" "}
+        </div>
+      ) : null}
 
       <div className="px-5">
         <h2>{file?.name}</h2>
