@@ -33,16 +33,16 @@ export default async function ContentPage({ params }: Props) {
     },
     where: {
       contentId: data.id,
+      NOT: {
+        lastViewed: null,
+      },
     },
   });
 
   return (
     <section className="p-5 space-y-8">
-      <LastViewedFile data={lastViewed} />
-      <ContentPercentage id={data.id} />
+      <h2>Informações sobre esse conteúdo:</h2>
       <Table>
-        <TableCaption>Informações sobre esse conteúdo</TableCaption>
-
         <TableBody>
           <TableRow>
             <TableHead className="font-medium">Nome</TableHead>
@@ -83,6 +83,16 @@ export default async function ContentPage({ params }: Props) {
           </TableRow>
         </TableBody>
       </Table>
+      <LastViewedFile data={lastViewed} />
+      <div className="space-y-6 ">
+        <h3 className="font-medium">
+          Progresso:{" "}
+          <span className="text-md font-normal text-neutral-500 dark:text-neutral-300">
+            (x/y) conteúdos vistos{" "}
+          </span>
+        </h3>{" "}
+        <ContentPercentage id={data.id} />
+      </div>
     </section>
   );
 }

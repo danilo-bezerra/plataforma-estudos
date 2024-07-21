@@ -18,7 +18,7 @@ export default function ContentList({
 
   return (
     <>
-      <div className="  w-full space-y-16">
+      <div className="  w-full space-y-16 ">
         {showFavorites && favorites.length > 0 ? (
           <div className="space-y-4">
             <h2>Favoritos ({favorites.length})</h2>{" "}
