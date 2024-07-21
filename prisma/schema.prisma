@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Content {
+  id    String  @id
+  name  String
+  cover String?
+  path  String
+  isFavorite Boolean @default(false)
+  isCompleted Boolean @default(false)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt @default(now())
+
+  folders Folder[]
+  files FileV2[]
+}
+
+model Folder {
+  id   String @id @default(uuid())
+  name String
+  path String
+
+  content   Content @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  contentId String
+
+  //Folder   Folder @relation(name: "ParentFolder", fields: [folderId], references: [id])
+  //folderId String
+
+  files File[]
+
+ // folders Folder[]
+}
+
+model File {
+  id          String @id 
+  name        String
+  path        String
+  isCompleted Boolean
+  type String
+  relativePath String
+  duration    Int?
+  elapsedTime Int?
+
+  folder   Folder @relation( fields: [folderId], references: [id], onDelete: Cascade)
+  folderId String
+}
+
+model FileV2 {
+  id          String @id  @default(uuid())
+  name        String
+  path        String
+  isCompleted Boolean
+  lastViewed DateTime?
+
+  type String
+  relativePath String
+  duration    Int?
+  elapsedTime Int?
+
+  content   Content @relation( fields: [contentId], references: [id], onDelete: Cascade)
+  contentId String
+}
