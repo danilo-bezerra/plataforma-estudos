@@ -34,12 +34,10 @@ export default async function FilePage({ params }: Props) {
 
       {file?.type == "image" ? (
         <div className="flex items-center justify-center min-h-[20vh]">
-          <Image
+          <img
             loading="lazy"
-            className="max-h-[80vh]"
+            className="max-h-[80vh] w-full"
             alt={file.name}
-            width={0}
-            height={0}
             src={url}
           />{" "}
         </div>
