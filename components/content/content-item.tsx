@@ -17,6 +17,7 @@ import { cn } from "@/lib/utils";
 import ContentPercentage from "../content/content-percentage";
 import DeleteContentButton from "../content/buttons/delete-content-btn";
 import FavoriteContentButton from "./buttons/favorite-content-btn";
+import ReScanContentFolderButton from "./buttons/rescan-content-folder-btn";
 
 type Props = {
   data: Content;
@@ -58,28 +59,29 @@ export default function ContentItem({ data, isEditable }: Props) {
 
           <ContentPercentage id={data.id} />
         </CardContent>
-        <CardFooter className="p-4 border space-x-2">
-          <FavoriteContentButton id={data.id} isFavorite={data.isFavorite} />
-
-          <div className="flex gap-4 justify-end w-full">
-            {isEditable ? (
-              <>
-                <Link href={`/conteudos/${data.id}/editar`}>
-                  <Button
-                    variant="secondary"
-                    className="dark:bg-neutral-200 text-neutral-800"
-                    size="sm"
-                  >
-                    Editar
-                  </Button>
-                </Link>
-                <DeleteContentButton data={data} />
-              </>
-            ) : null}
+        <CardFooter className="flex flex-col p-4 border gap-x-2 gap-y-4">
+          <div className="flex gap-4 justify-between w-full">
+            <FavoriteContentButton id={data.id} isFavorite={data.isFavorite} />
             <Link href={`/conteudos/${data.id}`}>
               <Button size="sm">Visualizar</Button>
             </Link>
           </div>
+          {isEditable ? (
+            <div className="flex justify-end gap-x-4 w-full">
+              <DeleteContentButton data={data} />
+              <Link href={`/conteudos/${data.id}/editar`}>
+                <Button
+                  variant="secondary"
+                  className="dark:bg-neutral-200 text-neutral-800 hover:opacity-80"
+                  size="sm"
+                >
+                  Editar
+                </Button>
+              </Link>
+
+              <ReScanContentFolderButton data={data} />
+            </div>
+          ) : null}
         </CardFooter>
       </Card>
     </li>

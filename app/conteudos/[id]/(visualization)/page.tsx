@@ -15,6 +15,7 @@ import {
 import ContentPercentage from "@/components/content/content-percentage";
 import { db } from "@/lib/db";
 import LastViewedFile from "@/components/content/files/last-viewed-file";
+import ReScanContentFolderButton from "@/components/content/buttons/rescan-content-folder-btn";
 
 type Props = {
   params: { id: string };
@@ -67,7 +68,9 @@ export default async function ContentPage({ params }: Props) {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="  "></TableCell>
+            <TableCell className="  ">
+              <ReScanContentFolderButton data={data} />
+            </TableCell>
             <TableCell className="  ">
               <CompleteContentButton
                 id={data.id}
