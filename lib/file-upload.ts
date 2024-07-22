@@ -38,7 +38,8 @@ export async function fileUpload(file: Blob) {
 
     try {
       const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
-      const filename = `${file.name.replace(
+      const fileAny = file as any;
+      const filename = `${fileAny.name.replace(
         /\.[^/.]+$/,
         ""
       )}-${uniqueSuffix}.${mime.getExtension(file.type)}`;

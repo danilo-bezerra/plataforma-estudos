@@ -1,6 +1,7 @@
 import NothingFound from "@/components/nothing-found";
 import { Player } from "@/components/player/player";
 import { getFile } from "@/services/getFile";
+import Image from "next/image";
 
 type Props = {
   params: { id: string; fileId: string };
@@ -19,10 +20,6 @@ export default async function FilePage({ params }: Props) {
 
   const url = `${process.env.URL}/api/v1/send/${params.fileId}`;
 
-  function onTimeUpdate(currentTime: number) {
-    console.log({ currentTime });
-  }
-
   return (
     <>
       {file?.type == "document" ? (
@@ -40,7 +37,14 @@ export default async function FilePage({ params }: Props) {
 
       {file?.type == "image" ? (
         <div className="flex items-center justify-center min-h-[20vh]">
-          <img loading="lazy" className="max-h-[80vh] " src={url}></img>{" "}
+          <Image
+            loading="lazy"
+            className="max-h-[80vh]"
+            alt={file.name}
+            width={0}
+            height={0}
+            src={url}
+          />{" "}
         </div>
       ) : null}
 

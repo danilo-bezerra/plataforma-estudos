@@ -1,7 +1,6 @@
 import { db } from "@/lib/db";
 import { fileUpload } from "@/lib/file-upload";
 import { updateContentSchema } from "@/schemas/schemas";
-import { saveDirectoryFiles } from "@/services/saveDirectoryFiles";
 import { extractFiles, FolderMap, mapFiles } from "@/utils/file-mapper";
 import { ZodError } from "zod";
 
@@ -119,10 +118,7 @@ export async function PUT(
           data: files.map((f) => ({ ...f, contentId: data.id })),
         });
       }
-      console.log({
-        isCompleted: isCompleted == "true",
-        isFavorite: isFavorite == "true",
-      });
+
       const updated = await db.content.update({
         where: {
           id: params.id,

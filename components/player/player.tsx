@@ -69,7 +69,7 @@ export function Player({
     }
 
     return player.current!.subscribe(({ paused, viewType }) => {});
-  }, []);
+  }, [data.contentId, data.id, lastElapsedTimeSaved, updateElapsedTime]);
 
   function onProviderChange(
     provider: MediaProviderAdapter | null,

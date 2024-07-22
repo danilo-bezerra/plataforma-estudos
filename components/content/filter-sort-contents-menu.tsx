@@ -136,7 +136,7 @@ const FilterSortContentsMenu = ({
 
     router.push(`?${queryString}`);
     router.refresh();
-  }, [sortField, sortOrder, showFavorites, searchText]);
+  }, [sortField, sortOrder, showFavorites, searchText, router]);
 
   return (
     <div className="flex flex-col gap-4">
