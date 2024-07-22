@@ -8,7 +8,7 @@ type Props = {
 
 export async function getAllContents({
   orderBy = "createdAt",
-  sortOrder = "asc",
+  sortOrder = "desc",
   searchText = "",
 }: Props) {
   try {

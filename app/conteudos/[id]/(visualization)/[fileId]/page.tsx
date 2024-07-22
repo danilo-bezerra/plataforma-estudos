@@ -36,7 +36,7 @@ export default async function FilePage({ params }: Props) {
         <div className="flex items-center justify-center min-h-[20vh]">
           <img
             loading="lazy"
-            className="max-h-[80vh] w-full"
+            className="max-h-[80vh] aspect-auto "
             alt={file.name}
             src={url}
           />{" "}

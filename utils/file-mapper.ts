@@ -21,9 +21,12 @@ export type FolderMap = {
 
 const targetFiles = [
   { name: "video", extensions: [".mp4", ".ts", ".mkv", ".mov"] },
-  { name: "document", extensions: [".pdf", ".html", ".txt"] },
+  { name: "document", extensions: [".pdf", ".html", ".txt", ".xml"] },
   { name: "audio", extensions: [".mp3"] },
-  { name: "image", extensions: [".png", ".jpeg", ".jpg", ".webp", ".gif"] },
+  {
+    name: "image",
+    extensions: [".png", ".jpeg", ".jpg", ".webp", ".gif", ".svg"],
+  },
 ];
 
 function isTargetFile(path: string) {

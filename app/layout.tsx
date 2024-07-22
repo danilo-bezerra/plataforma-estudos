@@ -36,7 +36,7 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class">
           <Header />
-          <main className="flex flex-col flex-1 p-6  space-y-8 ">
+          <main className="flex flex-col flex-1 p-6  space-y-8 w-full max-w-[1920px] mx-auto ">
             {children}
           </main>
 
