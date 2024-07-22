@@ -23,10 +23,7 @@ export default async function FilePage({ params }: Props) {
   return (
     <>
       {file?.type == "document" ? (
-        <iframe
-          className="h-full border-2 border-primary w-full"
-          src={url}
-        ></iframe>
+        <iframe className="h-full w-full" src={url}></iframe>
       ) : null}
 
       {file.type == "video" || file.type == "audio" ? (
