@@ -10,7 +10,7 @@ import { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
-  title: "Plataforma de estudos",
+  title: "Plataforma de Estudos",
   description:
     "Plataforma de estudos perfeita consumir conteúdos baixados no computador de forma inteligente e organizada.",
 };
