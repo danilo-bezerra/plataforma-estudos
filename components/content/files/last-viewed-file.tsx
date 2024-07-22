@@ -13,6 +13,10 @@ type Props = {
 export default function LastViewedFile({ data }: Props) {
   const [file, setFile] = useState<FileV2 | null>(data);
 
+  const fileModule = data?.relativePath
+    ? data.relativePath.split("\\").join(" -> ")
+    : "raiz";
+
   if (!file) {
     return null;
   }
@@ -41,14 +45,14 @@ export default function LastViewedFile({ data }: Props) {
               {file.type}
             </code>
           </p>
-          {data?.relativePath ? (
-            <p>
-              Módulo:{" "}
-              <code className="bg-purple-100 dark:bg-neutral-500/20 max-w-min max-h-min p-1 rounded-sm shrink-0 h-6 text-xs">
-                {data.relativePath.split("\\").join(" -> ")}
-              </code>
-            </p>
-          ) : null}
+
+          <p>
+            Módulo:{" "}
+            <code className="bg-purple-100 dark:bg-neutral-500/20 max-w-min max-h-min p-1 rounded-sm shrink-0 h-6 text-xs">
+              {fileModule}
+            </code>
+          </p>
+
           <span className="text-xs text-neutral-500 dark:text-neutral-300">
             {" "}
           </span>
