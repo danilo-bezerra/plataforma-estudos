@@ -42,7 +42,7 @@ export default function RootLayout({
 
           <Footer />
 
-          <Toaster />
+          <Toaster position="bottom-right" expand={true} richColors />
         </ThemeProvider>
       </body>
     </html>
