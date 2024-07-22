@@ -93,7 +93,7 @@ html {
 }
 
 h1 {
-  @apply text-3xl;
+  @apply text-[5vw] sm:text-[4vw] md:text-[3vw]  lg:text-3xl leading-none;
 }
 
 h2 {

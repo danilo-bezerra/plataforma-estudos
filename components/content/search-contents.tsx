@@ -36,7 +36,7 @@ export default function SearchContents({ onSearch }: Props) {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="flex space-x-4 items-center relative"
+          className="flex space-x-4 items-center relative max-w-[300px]"
         >
           <div className="flex space-x-2  items-center w-[300px]  ">
             <FormField

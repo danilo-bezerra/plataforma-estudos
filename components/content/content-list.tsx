@@ -18,9 +18,9 @@ export default function ContentList({
 
   return (
     <>
-      <div className="  w-full space-y-16 ">
+      <section className="  w-full space-y-16 ">
         {showFavorites && favorites.length > 0 ? (
-          <div className="space-y-4">
+          <section className="space-y-4">
             <h2>Favoritos ({favorites.length})</h2>{" "}
             <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
               {favorites.map((content) => (
@@ -31,10 +31,10 @@ export default function ContentList({
                 />
               ))}
             </ul>{" "}
-          </div>
+          </section>
         ) : null}
         {data.length > 0 ? (
-          <div className="space-y-4">
+          <section className="space-y-4">
             {showFavorites && favorites.length > 0 ? (
               <h2>Todos ({data.length})</h2>
             ) : null}
@@ -47,7 +47,7 @@ export default function ContentList({
                 />
               ))}
             </ul>
-          </div>
+          </section>
         ) : (
           <Card className="col-span-1 md:col-span-2 lg:col-span-3 xl:col-span-4">
             <CardHeader>
@@ -60,7 +60,7 @@ export default function ContentList({
             </CardDescription>
           </Card>
         )}
-      </div>
+      </section>
     </>
   );
 }

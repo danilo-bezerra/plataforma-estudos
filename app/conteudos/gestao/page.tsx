@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { getAllContents } from "@/services/getAllContents";
 import { getContentV2 } from "@/services/getContentV2";
 import Link from "next/link";
+import ContentHeader from "@/components/content/content-header";
 
 type Props = {
   searchParams?: { [key: string]: string };
@@ -26,15 +27,14 @@ export default async function AdminPage({ searchParams }: Props) {
 
   return (
     <>
-      <div className="flex justify-between gap-5">
-        <div className="flex gap-5 items-center">
-          <h1>Conteúdos cadastrados ({data.length})</h1>
-          <FilterSortContentsMenu />
-        </div>
-        <Link href="/conteudos/novo">
-          <Button>Cadastrar Conteúdo</Button>
-        </Link>
-      </div>
+      <ContentHeader
+        title={`Conteúdos cadastrados (${data.length})`}
+        leftItem={
+          <Link href="/conteudos/novo">
+            <Button>Cadastrar Conteúdo</Button>
+          </Link>
+        }
+      />
       <ContentList
         data={data}
         showFavorites={showFavorites}

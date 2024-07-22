@@ -1,5 +1,3 @@
-import NothingFound from "@/components/nothing-found";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 import { getContentV2 } from "@/services/getContentV2";

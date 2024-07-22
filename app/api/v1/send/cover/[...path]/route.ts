@@ -1,14 +1,7 @@
-import { getFile } from "@/services/getFile";
-
 import { NextResponse } from "next/server";
 
 import fs from "fs-extra";
-import {
-  getContentType,
-  iteratorToStream,
-  nodeStreamToIterator,
-  streamFile,
-} from "@/utils/stream-utils";
+import { getContentType, streamFile } from "@/utils/stream-utils";
 import path from "path";
 
 export async function GET(
@@ -21,7 +14,6 @@ export async function GET(
     const contentType = getContentType(filePath);
 
     const stream: ReadableStream = streamFile(filePath);
-    console.log("sem range");
     return new Response(stream, {
       status: 200,
       headers: new Headers({
