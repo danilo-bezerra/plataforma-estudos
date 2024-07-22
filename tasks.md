@@ -15,7 +15,7 @@
 
 [x ] - servir capas de conteudos pela por uma variação da rota send
 
-[ ] - mudar cor de fundo da exibição de detalhes e modulos de contents
+[x ] - mudar cor de fundo da exibição de detalhes e modulos de contents
 
 [ ] - permitir a adição de playlists do youtube
 
