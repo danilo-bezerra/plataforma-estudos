@@ -56,18 +56,14 @@ export async function POST(req: Request) {
       );
     }
 
-    const filesV2 = await db.fileV2.createMany({
+    const createdFiles = await db.fileV2.createMany({
       data: files.map((f) => ({ ...f, contentId })),
     });
 
     return Response.json(
       {
         content,
-
-        files: {
-          total: files.length,
-          list: files,
-        },
+        createdFiles,
       },
       { status: 201 }
     );

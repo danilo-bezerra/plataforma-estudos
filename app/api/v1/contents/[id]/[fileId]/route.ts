@@ -1,9 +1,6 @@
 import { db } from "@/lib/db";
 import { getFile } from "@/services/getFile";
-import { ZodError } from "zod";
-import path from "path";
 import { NextResponse } from "next/server";
-import fs from "fs-extra";
 import { updateFileSchema } from "@/schemas/schemas";
 
 export async function PUT(

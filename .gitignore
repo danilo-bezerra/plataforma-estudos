@@ -43,3 +43,5 @@ src-tauri
 plataforma-de-estudos.bat
 
 .env.dev
+
+tasks.md

@@ -11,7 +11,7 @@
 [x ] - registrar ultimo file acessado por cada content
 [x ] - ao entrar em um content exibir esse ultimo file como um card, dando a opção de ir direto para ele
 
-[ ] - escanear pasta do content novamente e remover arquivos ausentes e adicionar items novos, fazer comparação e checagem com base no path quando o usuario disparar o evento na pagina do content
+[x ] - escanear pasta do content novamente e remover arquivos ausentes e adicionar items novos, fazer comparação e checagem com base no path quando o usuario disparar o evento de re-scan
 
 [x ] - servir capas de conteudos pela por uma variação da rota send
 
@@ -19,4 +19,4 @@
 
 [ ] - permitir a adição de playlists do youtube
 
-[ ] - expor na rede local
+[ ] - verificar tipo de vídeo, caso seja incompativel com o navegador o player de vídeo nativo dev ser aberto com o vídeo

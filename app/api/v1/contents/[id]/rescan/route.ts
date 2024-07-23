@@ -1,6 +1,4 @@
 import { db } from "@/lib/db";
-import { fileUpload } from "@/lib/file-upload";
-import { updateContentSchema } from "@/schemas/schemas";
 import { extractFiles, FolderMap, mapFiles } from "@/utils/file-mapper";
 import { ZodError } from "zod";
 
