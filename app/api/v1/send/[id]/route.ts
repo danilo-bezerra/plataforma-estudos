@@ -1,6 +1,7 @@
 import { getFile } from "@/services/getFile";
 
 import { NextResponse } from "next/server";
+import path from "path";
 
 import fs from "fs-extra";
 import {
@@ -9,6 +10,11 @@ import {
   nodeStreamToIterator,
   streamFile,
 } from "@/utils/stream-utils";
+import {
+  isVideoExtensionCompatible,
+  noCompatibleVideoWarningPath,
+  openNativeVideoPlayer,
+} from "@/utils/video-player-utils";
 
 export async function GET(
   req: Request,
@@ -27,10 +33,19 @@ export async function GET(
       );
     }
 
-    const filePath = file?.path;
+    const isNoCompatibleVideo =
+      file.type == "video" && isVideoExtensionCompatible(file.path);
+
+    const filePath = isNoCompatibleVideo
+      ? noCompatibleVideoWarningPath
+      : file.path;
     const stats = await fs.stat(filePath);
     const range = req.headers.get("range");
     const contentType = getContentType(filePath);
+
+    if (isNoCompatibleVideo) {
+      openNativeVideoPlayer(file.path);
+    }
 
     if (range) {
       const parts = range.replace(/bytes=/, "").split("-");

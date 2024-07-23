@@ -30,14 +30,10 @@ type Props = {
   mediaSource?: string;
   data: FileV2;
   elapsedTime?: number;
+  loop?: boolean;
 };
 
-export function Player({
-  mediaSource,
-
-  data,
-  elapsedTime = 0,
-}: Props) {
+export function Player({ mediaSource, loop, data, elapsedTime = 0 }: Props) {
   let player = useRef<MediaPlayerInstance>(null),
     [src, setSrc] = useState(mediaSource);
   const [lastElapsedTimeSaved, setLastElapsedTimeSaved] = useState(elapsedTime);
@@ -102,6 +98,7 @@ export function Player({
         onCanPlay={onCanPlay}
         ref={player}
         currentTime={data.elapsedTime || 0}
+        loop={loop}
       >
         <MediaProvider>
           <Poster
