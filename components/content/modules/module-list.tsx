@@ -35,13 +35,15 @@ export default function ModuleList({ modules, contentId }: Props) {
               </div>
             </AccordionTrigger>
             <AccordionContent>
-              {modules.lessons.map((lesson, index) => (
-                <LessonListItem
-                  key={lesson.id}
-                  data={lesson}
-                  index={index + 1}
-                />
-              ))}
+              {modules.lessons
+                .sort((a, b) => a.name.localeCompare(b.name))
+                .map((lesson, index) => (
+                  <LessonListItem
+                    key={lesson.id}
+                    data={lesson}
+                    index={index + 1}
+                  />
+                ))}
             </AccordionContent>
           </AccordionItem>
         ) : null}

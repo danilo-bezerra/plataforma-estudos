@@ -19,4 +19,7 @@
 
 [ ] - permitir a adição de playlists do youtube
 
-[ ] - verificar tipo de vídeo, caso seja incompativel com o navegador o player de vídeo nativo dev ser aberto com o vídeo
+[x ] - verificar tipo de vídeo, caso seja incompativel com o navegador o player de vídeo nativo dev ser aberto com o vídeo
+[ ] - lidar com erro causando quando o vídeo não existir mais no computador
+
+[ ] -

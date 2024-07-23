@@ -20,7 +20,7 @@ export type FolderMap = {
 };
 
 const targetFiles = [
-  { name: "video", extensions: [".mp4", ".ts", ".mkv", ".mov", ".wmv"] },
+  { name: "video", extensions: [".mp4", ".ts", ".mkv", ".mov", ".wmv", ".ts"] },
   { name: "document", extensions: [".pdf", ".html", ".txt", ".xml"] },
   { name: "audio", extensions: [".mp3"] },
   {
@@ -30,7 +30,7 @@ const targetFiles = [
 ];
 
 function isTargetFile(path: string) {
-  const extension = path.split(".").reverse()[0];
+  const extension = path.toLowerCase().split(".").reverse()[0];
 
   const res = targetFiles.find((t) => t.extensions.includes(`.${extension}`));
 

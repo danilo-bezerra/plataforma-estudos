@@ -111,38 +111,3 @@ export const organizeLessonsV2 = (title: string, lessons: FileV2[]) => {
 
   return modules;
 };
-
-// export const organizeLessonsV2 = (title: string, lessons: FileV2[]) => {
-//   const modules: ModuleV3 = {
-//     title: title,
-//     lessons: [],
-//     modules: {},
-//   };
-
-//   lessons.forEach((l) => {
-//     if (l.relativePath == "") {
-//       modules.lessons.push(l);
-//     } else {
-//       const [module, ...submodules] = l.relativePath.split("\\");
-//       if (!modules.modules[module]) {
-//         console.log(module);
-//         createModule(module, modules);
-//       }
-
-//       if (submodules.length == 0) {
-//         modules.modules[module].lessons.push(l);
-//       } else {
-//         submodules.forEach((s) => {
-//           let m = modules.modules[module].modules[s];
-//           if (!m) {
-//             console.log(s);
-//             m = createModule(s, modules.modules[module]) as ModuleV3;
-//           }
-//           m.lessons.push(l);
-//         });
-//       }
-//     }
-//   });
-
-//   return modules;
-// };

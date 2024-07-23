@@ -1,7 +1,6 @@
 import NothingFound from "@/components/nothing-found";
 import { Player } from "@/components/player/player";
 import { getFile } from "@/services/getFile";
-import Image from "next/image";
 
 type Props = {
   params: { id: string; fileId: string };
@@ -27,7 +26,7 @@ export default async function FilePage({ params }: Props) {
       ) : null}
 
       {file.type == "video" || file.type == "audio" ? (
-        <div className="flex items-center justify-center min-h-[20vh]">
+        <div className="flex items-center  min-h-[20vh]">
           <Player data={file} mediaSource={url} />
         </div>
       ) : null}
