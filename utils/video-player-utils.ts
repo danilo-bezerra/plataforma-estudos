@@ -18,9 +18,7 @@ export const noCompatibleVideoWarningPath = path.join(
 );
 
 export function isVideoExtensionCompatible(filePath: string): boolean {
-  console.log(`[VERIFICANDO] - ${filePath}`);
   try {
-    // Extrair a extensão do arquivo
     const fileExtension = path.extname(filePath).slice(1).toLowerCase();
 
     // Verificar se a extensão é compatível
@@ -36,9 +34,7 @@ export function isVideoExtensionCompatible(filePath: string): boolean {
 }
 
 export function openNativeVideoPlayer(filePath: string): void {
-  console.log(`[EXECUTANDO] - abrir player nativo`);
   try {
-    // Comando para abrir o player de vídeo nativo
     let command: string;
 
     // Detectar o sistema operacional e configurar o comando apropriado
@@ -57,7 +53,6 @@ export function openNativeVideoPlayer(filePath: string): void {
         return;
     }
 
-    // Executar o comando
     exec(command, (error) => {
       if (error) {
         console.error(`Error opening video player: ${error.message}`);

@@ -79,6 +79,15 @@ export async function GET(
       });
     }
   } catch (e: any) {
+    if (e.code === "ENOENT") {
+      return NextResponse.json(
+        {
+          error: true,
+          message: `Arquivo não encontrado`,
+        },
+        { status: 404 }
+      );
+    }
     console.log({ e });
     return NextResponse.json(
       {
