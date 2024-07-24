@@ -11,11 +11,7 @@ export async function GET(
   try {
     const data = await db.content.findUnique({
       include: {
-        folders: {
-          include: {
-            files: true,
-          },
-        },
+        files: true,
       },
       where: {
         id: params.id,

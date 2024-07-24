@@ -50,3 +50,7 @@ export const updateFileSchema = z.object({
   isCompleted: z.boolean().optional(),
   elapsedTime: z.number().optional(),
 });
+
+export const mapPathSchema = z.object({
+  path: pathZod,
+});
