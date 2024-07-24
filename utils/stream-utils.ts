@@ -80,3 +80,13 @@ export function getContentType(filePath: string): string {
       return "application/octet-stream";
   }
 }
+
+export async function checkFileExistence(path: string) {
+  try {
+    const stats = await fs.stat(path);
+
+    return stats.isFile();
+  } catch {
+    return false;
+  }
+}

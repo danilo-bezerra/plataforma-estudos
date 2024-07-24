@@ -1,6 +1,7 @@
 import NothingFound from "@/components/nothing-found";
 import { Player } from "@/components/player/player";
 import { getFile } from "@/services/getFile";
+import { checkFileExistence } from "@/utils/stream-utils";
 
 type Props = {
   params: { id: string; fileId: string };
@@ -17,7 +18,13 @@ export default async function FilePage({ params }: Props) {
     );
   }
 
-  const url = `${process.env.URL}/api/v1/send/${params.fileId}`;
+  const fileStillExists = await checkFileExistence(file.path);
+  let url = `${process.env.URL}/api/v1/send/${params.fileId}`;
+
+  if (!fileStillExists) {
+    url = `${process.env.URL}/images/nao-encontrado.gif`;
+    file.type = "image";
+  }
 
   return (
     <>
