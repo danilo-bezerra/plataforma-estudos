@@ -103,7 +103,7 @@ export function Player({ mediaSource, loop, data, elapsedTime = 0 }: Props) {
         <MediaProvider>
           <Poster
             className="vds-poster"
-            src="https://i.postimg.cc/rsDgCZgB/3ohs4-Cacylz-Fa-Hj-MM8.webp"
+            src="/images/aperte-o-play.gif"
             alt="cool dance"
           />
         </MediaProvider>
