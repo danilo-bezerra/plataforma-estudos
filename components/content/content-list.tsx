@@ -1,7 +1,10 @@
+import Link from "next/link";
+import NothingFound from "../nothing-found";
 import { Card, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import CourseItem from "./content-item";
 
 import { Content } from "@prisma/client";
+import { Button } from "../ui/button";
 
 type Props = {
   data: Content[];
@@ -49,16 +52,14 @@ export default function ContentList({
             </ul>
           </section>
         ) : (
-          <Card className="col-span-1 md:col-span-2 lg:col-span-3 xl:col-span-4">
-            <CardHeader>
-              <CardTitle className="text-[hsl(222.2,84%,4.9%)] dark:text-white text-center">
-                Nenhum conteúdo encontrado!
-              </CardTitle>
-            </CardHeader>
-            <CardDescription className=" px-4 pb-4 text-center">
-              Que tal cadastrar o primeiro?
-            </CardDescription>
-          </Card>
+          <NothingFound
+            title="Nenhum conteúdo encontrado!"
+            description="Que tal cadastrar o primeiro?"
+          >
+            <Link href="/conteudos/novo">
+              <Button>Cadastrar conteúdo</Button>
+            </Link>
+          </NothingFound>
         )}
       </section>
     </>

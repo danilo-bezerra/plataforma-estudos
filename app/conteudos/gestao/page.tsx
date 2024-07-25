@@ -21,14 +21,23 @@ export default async function AdminPage({ searchParams }: Props) {
   const data = await getAllContents(searchOptions);
   const showFavorites = searchParams?.showFavorites == "true";
 
-  if (data === null) {
-    return <NothingFound />;
+  if (!data) {
+    return (
+      <NothingFound
+        title="Nenhum conteúdo encontrado!"
+        description="Que tal cadastrar o primeiro?"
+      >
+        <Link href="/conteudos/novo">
+          <Button>Cadastrar conteúdo</Button>
+        </Link>
+      </NothingFound>
+    );
   }
 
   return (
     <>
       <ContentHeader
-        title={`Conteúdos cadastrados (${data.length})`}
+        title={`Conteúdos cadastrados (${data?.length || 0})`}
         leftItem={
           <Link href="/conteudos/novo">
             <Button>Cadastrar Conteúdo</Button>
