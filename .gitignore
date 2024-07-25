@@ -36,6 +36,8 @@ yarn-error.log*
 next-env.d.ts
 
 prisma/dev.db
+prisma/test.db
+prisma/personal.db
 
 
 src-tauri

@@ -1,7 +1,7 @@
 import fs from "fs-extra";
 import path from "path";
 
-type FileV2 = {
+type File = {
   name: string;
   path: string;
   type: string;
@@ -15,7 +15,7 @@ type FileV2 = {
 export type FolderMap = {
   name: string;
   path: string;
-  files: FileV2[];
+  files: File[];
   folders: FolderMap[];
 };
 
@@ -36,8 +36,7 @@ function isTargetFile(path: string) {
 
   return res ? res : false;
 }
-let filesCount = 0;
-let foldersCount = 0;
+
 export async function mapFiles(
   targetPath: string,
   name: string,
@@ -69,8 +68,6 @@ export async function mapFiles(
         if (result != null) {
           map.folders.push(result);
         }
-
-        foldersCount++;
       } else {
         const target = isTargetFile(filePath);
         if (target) {
@@ -78,8 +75,6 @@ export async function mapFiles(
           filenameWordList.pop();
           const filename = filenameWordList.join(".");
           const relativePath = `${targetPath.replace(rootPath, "")}`;
-
-          filesCount++;
 
           map.files.push({
             name: filename,
@@ -98,20 +93,8 @@ export async function mapFiles(
   }
 }
 
-export function extractFiles(map: FolderMap): FileV2[] {
-  const files: FileV2[] = [];
-
-  map.files.forEach((f) => files.push(f));
-
-  map.folders.forEach((f) => {
-    files.push(...extractFiles(f));
-  });
-
-  return files;
-}
-
-export function extractFilesV2(map: FolderMap) {
-  const files: FileV2[] = [];
+export function extractFiles(map: FolderMap): File[] {
+  const files: File[] = [];
 
   map.files.forEach((f) => files.push(f));
 

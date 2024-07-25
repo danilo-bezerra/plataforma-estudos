@@ -1,5 +1,5 @@
 import { ModuleV3 } from "@/utils/organizer";
-import { File, FileV2 } from "@prisma/client";
+import { FileV2 } from "@prisma/client";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 

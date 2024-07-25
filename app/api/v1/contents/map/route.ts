@@ -1,6 +1,6 @@
-import { createContentSchema, mapPathSchema } from "@/schemas/schemas";
-import { z, ZodError } from "zod";
+import { ZodError } from "zod";
 import { extractFiles, FolderMap, mapFiles } from "@/utils/file-mapper";
+import { mapPathSchema } from "@/schemas/schemas";
 
 export async function POST(req: Request) {
   try {
