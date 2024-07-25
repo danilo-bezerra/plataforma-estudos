@@ -74,13 +74,15 @@ export async function mapFiles(
       } else {
         const target = isTargetFile(filePath);
         if (target) {
-          const filename = file.split(".")[0];
+          const filenameWordList = file.split(".");
+          filenameWordList.pop();
+          const filename = filenameWordList.join(".");
           const relativePath = `${targetPath.replace(rootPath, "")}`;
 
           filesCount++;
 
           map.files.push({
-            name: file.split(".")[0],
+            name: filename,
             path: filePath,
             type: target.name,
             isCompleted: false,
