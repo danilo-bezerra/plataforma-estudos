@@ -99,6 +99,7 @@ export function Player({ mediaSource, loop, data, elapsedTime = 0 }: Props) {
         ref={player}
         currentTime={data.elapsedTime || 0}
         loop={loop}
+        viewType={data.type == "video" ? "video" : "audio"}
       >
         <MediaProvider>
           <Poster

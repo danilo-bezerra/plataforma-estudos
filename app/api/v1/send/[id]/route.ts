@@ -2,6 +2,7 @@ import { getFile } from "@/services/getFile";
 
 import { NextResponse } from "next/server";
 import path from "path";
+import mime from "mime";
 
 import fs from "fs-extra";
 import {

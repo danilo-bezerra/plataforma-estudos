@@ -28,6 +28,8 @@ export function iteratorToStream(iterator: any) {
   });
 }
 
+//mime.getType(filePath)
+
 export function getContentType(filePath: string): string {
   const ext = path.extname(filePath).toLowerCase();
   switch (ext) {
@@ -54,6 +56,8 @@ export function getContentType(filePath: string): string {
       return "text/css";
     case ".js":
       return "application/javascript";
+    case ".mov":
+      return "video/mp4";
     case ".xml":
       return "application/xml";
     default:

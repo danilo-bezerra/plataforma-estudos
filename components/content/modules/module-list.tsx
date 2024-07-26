@@ -47,9 +47,11 @@ export default function ModuleList({ modules, contentId }: Props) {
             </AccordionContent>
           </AccordionItem>
         ) : null}
-        {Object.values(modules.modules).map((module) => (
-          <ModuleItem key={module.title} module={module} />
-        ))}
+        {Object.values(modules.modules)
+          .sort((a, b) => a.title.localeCompare(b.title))
+          .map((module) => (
+            <ModuleItem key={module.title} module={module} />
+          ))}
       </Accordion>
     </div>
   );

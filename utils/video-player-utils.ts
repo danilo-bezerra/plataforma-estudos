@@ -1,14 +1,7 @@
 import { exec } from "child_process";
 import path from "path";
 
-const compatibleExtensions: string[] = [
-  "mp4",
-  "webm",
-  "ogg",
-  "avi",
-  "mov",
-  "3gp",
-];
+const compatibleExtensions: string[] = ["mp4", "webm", "ogg", "3gp", "mov"];
 
 export const noCompatibleVideoWarningPath = path.join(
   process.cwd(),
