@@ -1,6 +1,8 @@
 
 # Plataforma de estudos
 
+![Imagem em Destaque](./screenshots.png)
+
 Este guia irá ajudá-lo a configurar e executar a aplicação no seu ambiente local.
 
 ## Pré-requisitos
