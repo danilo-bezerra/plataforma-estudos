@@ -36,7 +36,12 @@ export default function ModuleList({ modules, contentId }: Props) {
             </AccordionTrigger>
             <AccordionContent>
               {modules.lessons
-                .sort((a, b) => a.name.localeCompare(b.name))
+                .sort((a, b) =>
+                  a.name.localeCompare(b.name, undefined, {
+                    numeric: true,
+                    sensitivity: "accent",
+                  })
+                )
                 .map((lesson, index) => (
                   <LessonListItem
                     key={lesson.id}
@@ -48,7 +53,12 @@ export default function ModuleList({ modules, contentId }: Props) {
           </AccordionItem>
         ) : null}
         {Object.values(modules.modules)
-          .sort((a, b) => a.title.localeCompare(b.title))
+          .sort((a, b) =>
+            a.title.localeCompare(b.title, undefined, {
+              numeric: true,
+              sensitivity: "accent",
+            })
+          )
           .map((module) => (
             <ModuleItem key={module.title} module={module} />
           ))}
