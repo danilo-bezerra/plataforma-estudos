@@ -14,6 +14,13 @@ import { calculateFilesCompletionPercentage } from "@/lib/utils";
 type Props = { modules: ModuleV3; contentId: string };
 
 export default function ModuleList({ modules, contentId }: Props) {
+  modules.lessons.sort((a, b) =>
+    a.name.localeCompare(b.name, undefined, {
+      numeric: true,
+      sensitivity: "accent",
+    })
+  );
+
   return (
     <div className="">
       <Accordion type="multiple" className="w-full ">
@@ -35,20 +42,13 @@ export default function ModuleList({ modules, contentId }: Props) {
               </div>
             </AccordionTrigger>
             <AccordionContent>
-              {modules.lessons
-                .sort((a, b) =>
-                  a.name.localeCompare(b.name, undefined, {
-                    numeric: true,
-                    sensitivity: "accent",
-                  })
-                )
-                .map((lesson, index) => (
-                  <LessonListItem
-                    key={lesson.id}
-                    data={lesson}
-                    index={index + 1}
-                  />
-                ))}
+              {modules.lessons.map((lesson, index) => (
+                <LessonListItem
+                  key={lesson.id}
+                  data={lesson}
+                  index={index + 10}
+                />
+              ))}
             </AccordionContent>
           </AccordionItem>
         ) : null}

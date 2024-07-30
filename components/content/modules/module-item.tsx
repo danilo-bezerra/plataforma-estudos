@@ -30,9 +30,16 @@ export default function ModuleItem({ module }: Props) {
         </div>
       </AccordionTrigger>
       <AccordionContent>
-        {module.lessons.map((lesson, index) => (
-          <FileListItem key={lesson.id} data={lesson} index={index + 1} />
-        ))}
+        {module.lessons
+          .sort((a, b) =>
+            a.name.localeCompare(b.name, undefined, {
+              numeric: true,
+              sensitivity: "accent",
+            })
+          )
+          .map((lesson, index) => (
+            <FileListItem key={lesson.id} data={lesson} index={index + 1} />
+          ))}
         {Object.values(module.modules).map((module) => (
           <ModuleItem key={module.title} module={module} />
         ))}
