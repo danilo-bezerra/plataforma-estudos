@@ -23,5 +23,11 @@ export default function CompleteFileCheckbox({ ids, isCompleted }: Props) {
     router.refresh();
   };
 
-  return <Checkbox checked={isCompleted} onCheckedChange={toggleCompleted} />;
+  return (
+    <Checkbox
+      title={isCompleted ? "concluído" : "não concluído"}
+      checked={isCompleted}
+      onCheckedChange={toggleCompleted}
+    />
+  );
 }

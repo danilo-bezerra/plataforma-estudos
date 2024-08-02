@@ -38,6 +38,7 @@ export default function FileListItem({
       <Link
         href={`/conteudos/${data.contentId}/${data.id}`}
         className="w-[90%] cursor-pointer h-full  flex gap-2 items-center hover:no-underline group"
+        title={data.name}
       >
         <code className="pl-4">{index}</code>
 
