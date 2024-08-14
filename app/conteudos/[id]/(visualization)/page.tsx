@@ -16,6 +16,8 @@ import ContentPercentage from "@/components/content/content-percentage";
 import { db } from "@/lib/db";
 import LastViewedFile from "@/components/content/files/last-viewed-file";
 import ReScanContentFolderButton from "@/components/content/buttons/rescan-content-folder-btn";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 type Props = {
   params: { id: string };
@@ -82,6 +84,18 @@ export default async function ContentPage({ params }: Props) {
                 id={data.id}
                 isFavorite={data.isFavorite}
               />
+            </TableCell>
+            <TableCell>&nbsp;</TableCell>
+            <TableCell>
+              <Link href={`/conteudos/${data.id}/editar`}>
+                <Button
+                  variant="secondary"
+                  className="dark:bg-neutral-200 text-neutral-800 hover:opacity-80"
+                  size="sm"
+                >
+                  Editar
+                </Button>
+              </Link>
             </TableCell>
           </TableRow>
         </TableBody>

@@ -1,8 +1,6 @@
 import { getFile } from "@/services/getFile";
 
 import { NextResponse } from "next/server";
-import path from "path";
-import mime from "mime";
 
 import fs from "fs-extra";
 import {
@@ -14,8 +12,8 @@ import {
 import {
   isVideoExtensionCompatible,
   noCompatibleVideoWarningPath,
-  openNativeVideoPlayer,
 } from "@/utils/video-player-utils";
+import { openFile } from "@/actions/open-file";
 
 export async function GET(
   req: Request,
@@ -45,7 +43,7 @@ export async function GET(
     const contentType = getContentType(filePath);
 
     if (isNoCompatibleVideo) {
-      openNativeVideoPlayer(file.path);
+      openFile(file.path);
     }
 
     if (range) {

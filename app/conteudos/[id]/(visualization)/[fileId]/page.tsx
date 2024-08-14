@@ -1,5 +1,9 @@
+import CompleteContentButton from "@/components/content/buttons/complete-content-btn";
+import CompleteFileCheckbox from "@/components/content/files/complete-file-checkbox";
+import OpenFileOnComputerButton from "@/components/content/files/open-file-on-computer-btn";
 import NothingFound from "@/components/nothing-found";
 import { Player } from "@/components/player/player";
+import { Label } from "@/components/ui/label";
 import { getFile } from "@/services/getFile";
 import { checkFileExistence } from "@/utils/stream-utils";
 
@@ -49,9 +53,18 @@ export default async function FilePage({ params }: Props) {
         </div>
       ) : null}
 
-      <div className="px-5">
-        <h2>{file?.name}</h2>
+      <div className="px-5 flex justify-between">
+        <h2>{file?.name}</h2>{" "}
+        <Label className="flex gap-2 items-center">
+          <CompleteFileCheckbox
+            ids={{ fileId: file.id, contentId: file.contentId }}
+            isCompleted={file.isCompleted}
+          />
+          {file.isCompleted ? "Concluído" : "Não concluído"}
+        </Label>
       </div>
+
+      <OpenFileOnComputerButton path={file.path} />
     </>
   );
 }

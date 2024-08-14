@@ -45,5 +45,5 @@ src-tauri
 plataforma-de-estudos.bat
 
 .env.local
-
+.env.development
 tasks.txt

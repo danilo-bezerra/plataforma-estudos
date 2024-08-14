@@ -26,32 +26,32 @@ export function isVideoExtensionCompatible(filePath: string): boolean {
   }
 }
 
-export function openNativeVideoPlayer(filePath: string): void {
-  try {
-    let command: string;
+// export function openNativeVideoPlayer(filePath: string): void {
+//   try {
+//     let command: string;
 
-    // Detectar o sistema operacional e configurar o comando apropriado
-    switch (process.platform) {
-      case "win32":
-        command = `start "" "${filePath}"`; // Windows
-        break;
-      case "darwin":
-        command = `open "${filePath}"`; // macOS
-        break;
-      case "linux":
-        command = `xdg-open "${filePath}"`; // Linux
-        break;
-      default:
-        console.error("Unsupported OS");
-        return;
-    }
+//     // Detectar o sistema operacional e configurar o comando apropriado
+//     switch (process.platform) {
+//       case "win32":
+//         command = `start "" "${filePath}"`; // Windows
+//         break;
+//       case "darwin":
+//         command = `open "${filePath}"`; // macOS
+//         break;
+//       case "linux":
+//         command = `xdg-open "${filePath}"`; // Linux
+//         break;
+//       default:
+//         console.error("Unsupported OS");
+//         return;
+//     }
 
-    exec(command, (error) => {
-      if (error) {
-        console.error(`Error opening video player: ${error.message}`);
-      }
-    });
-  } catch (error) {
-    console.error(`Error in openNativeVideoPlayer function: ${error}`);
-  }
-}
+//     exec(command, (error) => {
+//       if (error) {
+//         console.error(`Error opening video player: ${error.message}`);
+//       }
+//     });
+//   } catch (error) {
+//     console.error(`Error in openNativeVideoPlayer function: ${error}`);
+//   }
+// }
